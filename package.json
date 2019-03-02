@@ -1,0 +1,23 @@
+{
+  "name": "learning-node-restfy-mongo",
+  "version": "1.0.0",
+  "description": "Code developed in the course that teaches the creation of API using node + restfy + mongo",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thiagoabreudev/learning-node-restfy-mongo.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/thiagoabreudev/learning-node-restfy-mongo/issues"
+  },
+  "homepage": "https://github.com/thiagoabreudev/learning-node-restfy-mongo#readme",
+  "dependencies": {
+    "restify": "^8.0.0"
+  }
+}
