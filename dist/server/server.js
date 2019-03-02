@@ -3,7 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const restify = require("restify");
 const enviroment_1 = require("../common/enviroment");
 class Server {
-    initRoutes() {
+    initRoutes(routers) {
         return new Promise((resolve, reject) => {
             try {
                 this.application = restify.createServer({
@@ -13,16 +13,9 @@ class Server {
                 // Plugin used to parser quer params in url browser    
                 this.application.use(restify.plugins.queryParser());
                 //routes 
-                this.application.get('/info', (req, resp, next) => {
-                    resp.json({
-                        browser: req.userAgent(),
-                        method: req.method,
-                        url: req.href(),
-                        path: req.path(),
-                        query: req.query
-                    });
-                    return next();
-                });
+                for (let router of routers) {
+                    router.applyRoutes(this.application);
+                }
                 this.application.listen(enviroment_1.enviroment.server.port, () => {
                     resolve(this.application);
                 });
@@ -32,8 +25,8 @@ class Server {
             }
         });
     }
-    bootstrap() {
-        return this.initRoutes().then(() => this);
+    bootstrap(routers = []) {
+        return this.initRoutes(routers).then(() => this);
     }
 }
 exports.Server = Server;
