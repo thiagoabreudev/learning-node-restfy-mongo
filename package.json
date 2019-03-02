@@ -18,6 +18,8 @@
   },
   "homepage": "https://github.com/thiagoabreudev/learning-node-restfy-mongo#readme",
   "dependencies": {
+    "@types/node": "^11.10.4",
+    "@types/restify": "^7.2.8",
     "restify": "^8.0.0"
   }
 }
